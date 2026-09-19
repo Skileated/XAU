@@ -1,0 +1,26 @@
+environment: development
+project_name: xau-test-platform
+version: "0.1.0"
+
+logging:
+  level: "${TEST_LOG_LEVEL:-DEBUG}"
+  format: "text"
+  max_bytes: 1048576
+  backup_count: 2
+  enable_console: false
+  enable_file: true
+
+storage:
+  engine: duckdb
+  database_filename: test.duckdb
+  memory_limit: 1GB
+
+data:
+  primary_symbol: XAUUSD
+  base_currency: XAU
+  quote_currency: USD
+  timezone: UTC
+
+custom:
+  secret_api_key: "${TEST_SECRET_KEY:-top_secret_token}"
+  int_value: "${TEST_INT_VAL:-42}"

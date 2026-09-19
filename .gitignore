@@ -1,0 +1,60 @@
+# Python environment
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Linters and type checkers
+.mypy_cache/
+.ruff_cache/
+
+# Environment variables & secrets (commit only .env.example)
+.env
+*.env
+!.env.example
+
+# Runtime logs
+logs/**/*.log
+logs/**/*.json
+
+# Runtime and generated data (allow .gitkeep)
+data/raw/*
+data/interim/*
+data/processed/*
+data/features/*
+data/metadata/*
+
+# Runtime and generated artifacts (allow .gitkeep and reports)
+artifacts/datasets/*
+artifacts/backtests/*
+artifacts/validation/*
+artifacts/models/*
+
+# Preserve .gitkeep files in empty structural directories
+!.gitkeep
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+~$*
+*.tmp

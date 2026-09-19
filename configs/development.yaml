@@ -1,0 +1,29 @@
+# ==============================================================================
+# Development Configuration
+# ==============================================================================
+environment: development
+project_name: xau-quant-platform
+version: "0.1.0"
+
+logging:
+  level: "${LOG_LEVEL:-DEBUG}"
+  format: "${LOG_FORMAT:-text}"
+  max_bytes: 10485760 # 10MB
+  backup_count: 5
+  enable_console: true
+  enable_file: true
+
+storage:
+  engine: duckdb
+  database_filename: xau_dev.duckdb
+  memory_limit: 2GB
+
+data:
+  primary_symbol: XAUUSD
+  base_currency: XAU
+  quote_currency: USD
+  timezone: UTC
+
+custom:
+  hot_reload: true
+  debug_mode: true

@@ -1,0 +1,30 @@
+# ==============================================================================
+# Paper Trading Configuration
+# Focus: Strict risk boundaries, production-like runtime isolation
+# ==============================================================================
+environment: paper
+project_name: xau-quant-platform
+version: "0.1.0"
+
+logging:
+  level: "${LOG_LEVEL:-INFO}"
+  format: "${LOG_FORMAT:-text}"
+  max_bytes: 20971520 # 20MB
+  backup_count: 10
+  enable_console: true
+  enable_file: true
+
+storage:
+  engine: duckdb
+  database_filename: xau_paper.duckdb
+  memory_limit: 4GB
+
+data:
+  primary_symbol: XAUUSD
+  base_currency: XAU
+  quote_currency: USD
+  timezone: UTC
+
+custom:
+  paper_trading_mode: true
+  execution_slippage_model: conservative
