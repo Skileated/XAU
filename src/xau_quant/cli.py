@@ -448,11 +448,87 @@ def data_cmd() -> None:
                 f"  [{tf}] Generated {count} candles ({complete}/{count} complete) -> "
                 f"{out_path.name} (SHA-256: {sha[:12]}...)"
             )
+    elif action == "expand":
+        from xau_quant.data.expansion import HistoricalExpansionEngine
+
+        symbol = "BTCUSDT"
+        timeframe = "1m"
+        start_year = 2023
+        start_month = 9
+        end_year = 2026
+        end_month = 9
+        resume = True
+
+        for i, a in enumerate(args):
+            if a in ("-s", "--symbol") and i + 1 < len(args):
+                symbol = args[i + 1]
+            if a in ("--start-year",) and i + 1 < len(args):
+                start_year = int(args[i + 1])
+            if a in ("--start-month",) and i + 1 < len(args):
+                start_month = int(args[i + 1])
+            if a in ("--end-year",) and i + 1 < len(args):
+                end_year = int(args[i + 1])
+            if a in ("--end-month",) and i + 1 < len(args):
+                end_month = int(args[i + 1])
+            if a == "--no-resume":
+                resume = False
+
+        console.print(
+            f"[bold cyan]Launching historical expansion for {symbol} "
+            f"({start_year}-{start_month:02d} to {end_year}-{end_month:02d})...[/bold cyan]"
+        )
+        exp_engine = HistoricalExpansionEngine()
+        exp_result = exp_engine.run(
+            symbol=symbol,
+            timeframe=timeframe,
+            start_year=start_year,
+            start_month=start_month,
+            end_year=end_year,
+            end_month=end_month,
+            resume=resume,
+        )
+        console.print(
+            f"[bold green]Historical expansion complete! "
+            f"Acquired {exp_result.total_1m_rows:,} 1m rows across\n"
+            f"{exp_result.total_partitions} partitions in "
+            f"{exp_result.duration_seconds:.2f}s.[/bold green]"
+        )
+    elif action == "gaps":
+        from xau_quant.data.gap_registry import GapRegistry
+
+        registry = GapRegistry()
+        gaps = registry.get_all_gaps()
+        if not gaps:
+            console.print(
+                "[bold green]Zero market data gaps registered in Gap Registry.[/bold green]"
+            )
+        else:
+            table = Table(title="Market Data Gap Registry", header_style="bold cyan")
+            table.add_column("Gap ID", style="bold")
+            table.add_column("Instrument")
+            table.add_column("Start UTC")
+            table.add_column("End UTC")
+            table.add_column("Missing", justify="right")
+            table.add_column("Category", style="yellow")
+            table.add_column("Evidence")
+            for g in gaps:
+                table.add_row(
+                    g.gap_id,
+                    g.instrument,
+                    g.actual_missing_start_utc.isoformat(),
+                    g.actual_missing_end_utc.isoformat(),
+                    str(g.missing_candles_count),
+                    g.category.value,
+                    g.evidence[:40] + "..." if len(g.evidence) > 40 else g.evidence,
+                )
+            console.print(table)
     else:
         console.print(
             "Data commands:\n"
             "  xau data acquire --symbol BTCUSDT --limit 120 --timeframe 1m\n"
             "  xau data backfill --symbol BTCUSDT --start <start_iso> --end <end_iso>\n"
+            "  xau data expand --symbol BTCUSDT --start-year 2023 --end-year 2026\n"
+            "  xau data gaps\n"
             "  xau data resample --symbol BTCUSDT --parquet <path> --timeframes 5m,15m,1h,4h,1d\n"
             "  xau data ws-test --symbol BTCUSDT --duration 5"
         )

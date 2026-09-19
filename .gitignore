@@ -40,12 +40,18 @@ data/processed/*
 data/features/*
 data/metadata/*
 !data/metadata/manifests/
+!data/metadata/manifests/**/
 !data/metadata/manifests/*.json
+!data/metadata/manifests/**/*.json
+!data/metadata/gap_registry/
+!data/metadata/gap_registry/*.json
 data/metadata/checkpoints/*
 
 # Runtime and generated artifacts (allow .gitkeep, reports, and dataset manifests)
 artifacts/datasets/*
+!artifacts/datasets/**/
 !artifacts/datasets/*.json
+!artifacts/datasets/**/*.json
 artifacts/backtests/*
 artifacts/validation/*
 artifacts/models/*

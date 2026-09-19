@@ -1,0 +1,25 @@
+{
+  "partition_id": "binance_spot_btcusdt_1m_202512",
+  "year": 2025,
+  "month": 12,
+  "instrument": "BTCUSDT",
+  "venue": "binance",
+  "market_type": "spot",
+  "timeframe": "1m",
+  "start_utc": "2025-12-01T00:00:00+00:00",
+  "end_utc": "2025-12-31T23:59:00+00:00",
+  "row_count": 44640,
+  "parquet_path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\processed\\binance\\spot\\BTCUSDT\\1m\\year=2025\\month=12\\binance_spot_btcusdt_1m_202512.parquet",
+  "parquet_sha256": "38a3c74c205206c13c2647dedd50cee098b73c82751de539e03fdf8082009189",
+  "raw_source_files": [
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2025-12\\BTCUSDT-1m-2025-12.zip",
+      "sha256": "7b47647352b01356dcd678a1438efb8baac03ed798785ed2179d428aab0cca9b",
+      "size_bytes": 2154846,
+      "type": "monthly_archive_zip"
+    }
+  ],
+  "validation_status": "PASS",
+  "created_at_utc": "2026-09-19T10:37:16.749967+00:00",
+  "schema_version": "1.1.0"
+}

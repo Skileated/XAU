@@ -1,3 +1,4 @@
+from xau_quant.data.archive import BinanceVisionArchiveProvider
 from xau_quant.data.backfill import (
     BackfillCheckpoint,
     BackfillEngine,
@@ -6,7 +7,18 @@ from xau_quant.data.backfill import (
     CheckpointManager,
 )
 from xau_quant.data.binance import BinanceSpotProvider
-from xau_quant.data.manifest import ProvenanceManifest
+from xau_quant.data.expansion import (
+    ExpansionCheckpoint,
+    ExpansionInterruptedException,
+    HistoricalExpansionEngine,
+    HistoricalExpansionResult,
+)
+from xau_quant.data.gap_registry import GapCategory, GapRecord, GapRegistry
+from xau_quant.data.manifest import (
+    PartitionManifest,
+    ProvenanceManifest,
+    RootDatasetManifest,
+)
 from xau_quant.data.models import CanonicalCandle
 from xau_quant.data.normalizer import BinanceKlineNormalizer
 from xau_quant.data.provider import DataProvider
@@ -19,11 +31,14 @@ __all__ = [
     "CanonicalCandle",
     "DataProvider",
     "BinanceSpotProvider",
+    "BinanceVisionArchiveProvider",
     "BinanceKlineNormalizer",
     "MarketDataValidator",
     "ValidationReport",
     "ParquetCandleStorage",
     "ProvenanceManifest",
+    "PartitionManifest",
+    "RootDatasetManifest",
     "BackfillEngine",
     "CheckpointManager",
     "BackfillCheckpoint",
@@ -31,4 +46,11 @@ __all__ = [
     "BackfillInterruptedException",
     "MultiTimeframeResampler",
     "DataQualityReporter",
+    "GapRegistry",
+    "GapRecord",
+    "GapCategory",
+    "HistoricalExpansionEngine",
+    "ExpansionCheckpoint",
+    "ExpansionInterruptedException",
+    "HistoricalExpansionResult",
 ]

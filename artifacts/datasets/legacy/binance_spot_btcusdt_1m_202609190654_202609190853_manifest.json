@@ -1,0 +1,31 @@
+{
+  "dataset_id": "binance_spot_btcusdt_1m_202609190654_202609190853",
+  "venue": "binance",
+  "instrument": "BTCUSDT",
+  "market_type": "spot",
+  "timeframe": "1m",
+  "source_endpoint": "https://api.binance.com/api/v3/klines",
+  "requested_start": null,
+  "requested_end": null,
+  "actual_start": "2026-09-19T06:54:00+00:00",
+  "actual_end": "2026-09-19T08:53:00+00:00",
+  "acquisition_timestamp_utc": "2026-09-19T08:53:03.478054+00:00",
+  "schema_version": "1.0.0",
+  "raw_file_path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789800840000_1789807980000_20260919_085259_raw.json",
+  "raw_file_hash_sha256": "fb88bedcb0517d2f63f1f3c237ac53aba52dc6b451b28d80370d44efaf644485",
+  "normalized_file_path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\processed\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_20260919_065400_to_20260919_085300.parquet",
+  "normalized_file_hash_sha256": "0695a10317b0500bd1598e5732a9eff2feb069d587dd87395ab4a0fee0240ba2",
+  "raw_row_count": 120,
+  "normalized_row_count": 120,
+  "validation_status": "PASS",
+  "validation_summary": {
+    "is_valid": true,
+    "total_records": 120,
+    "valid_records_count": 120,
+    "invalid_records_count": 0,
+    "duplicate_count": 0,
+    "conflicting_duplicate_count": 0,
+    "gaps_count": 0,
+    "total_issues_count": 0
+  }
+}

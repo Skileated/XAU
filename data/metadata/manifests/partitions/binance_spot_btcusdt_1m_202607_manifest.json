@@ -1,0 +1,25 @@
+{
+  "partition_id": "binance_spot_btcusdt_1m_202607",
+  "year": 2026,
+  "month": 7,
+  "instrument": "BTCUSDT",
+  "venue": "binance",
+  "market_type": "spot",
+  "timeframe": "1m",
+  "start_utc": "2026-07-01T00:00:00+00:00",
+  "end_utc": "2026-07-31T23:59:00+00:00",
+  "row_count": 44640,
+  "parquet_path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\processed\\binance\\spot\\BTCUSDT\\1m\\year=2026\\month=07\\binance_spot_btcusdt_1m_202607.parquet",
+  "parquet_sha256": "d8fbb1721e8903a6de927b6c159ee63f9fdf917af2b483f38ae71f0eec03c541",
+  "raw_source_files": [
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2026-07\\BTCUSDT-1m-2026-07.zip",
+      "sha256": "3ef15c84353da48e1c7c5fd99b9751cb036bf8986ed47f7cd1be63359c0d4f6b",
+      "size_bytes": 2112275,
+      "type": "monthly_archive_zip"
+    }
+  ],
+  "validation_status": "PASS",
+  "created_at_utc": "2026-09-19T10:38:06.490963+00:00",
+  "schema_version": "1.1.0"
+}

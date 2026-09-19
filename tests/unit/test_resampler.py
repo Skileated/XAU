@@ -163,3 +163,49 @@ def test_resample_all_standard_timeframes() -> None:
     assert len(results["1d"]) == 1
     assert results["1d"][0].is_complete is True
     assert results["1d"][0].timestamp_utc == start
+
+
+def test_missing_constituent_marks_all_derived_timeframes_incomplete() -> None:
+    """Verify invariant: when a 1m candle is missing, every derived timeframe (5m, 15m, 1h, 4h, 1d)
+    enclosing that minute is constructed from available candles with is_complete=False.
+    """
+    start = datetime(2026, 9, 19, 0, 0, 0, tzinfo=timezone.utc)
+    # Generate 1440 1m candles for 1 full day, but delete minute 3 (00:03:00)
+    candles_1m = [
+        make_candle(start + timedelta(minutes=i))
+        for i in range(1440)
+        if i != 3  # Gap at 00:03:00
+    ]
+    assert len(candles_1m) == 1439
+
+    results = MultiTimeframeResampler.resample_all(candles_1m)
+
+    # 5m: bucket 00:00 (4 candles) is incomplete; all other 287 buckets are complete
+    assert len(results["5m"]) == 288
+    assert results["5m"][0].is_complete is False
+    assert results["5m"][0].timestamp_utc == start
+    assert all(c.is_complete for c in results["5m"][1:])
+
+    # 15m: bucket 00:00 (14 candles) is incomplete; all other 95 buckets are complete
+    assert len(results["15m"]) == 96
+    assert results["15m"][0].is_complete is False
+    assert results["15m"][0].timestamp_utc == start
+    assert all(c.is_complete for c in results["15m"][1:])
+
+    # 1h: bucket 00:00 (59 candles) is incomplete; all other 23 buckets are complete
+    assert len(results["1h"]) == 24
+    assert results["1h"][0].is_complete is False
+    assert results["1h"][0].timestamp_utc == start
+    assert all(c.is_complete for c in results["1h"][1:])
+
+    # 4h: bucket 00:00 (239 candles) is incomplete; all other 5 buckets are complete
+    assert len(results["4h"]) == 6
+    assert results["4h"][0].is_complete is False
+    assert results["4h"][0].timestamp_utc == start
+    assert all(c.is_complete for c in results["4h"][1:])
+
+    # 1d: bucket 00:00 (1439 candles) is incomplete
+    assert len(results["1d"]) == 1
+    assert results["1d"][0].is_complete is False
+    assert results["1d"][0].timestamp_utc == start
+

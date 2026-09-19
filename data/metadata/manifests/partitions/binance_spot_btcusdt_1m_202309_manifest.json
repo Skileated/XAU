@@ -1,0 +1,110 @@
+{
+  "partition_id": "binance_spot_btcusdt_1m_202309",
+  "year": 2023,
+  "month": 9,
+  "instrument": "BTCUSDT",
+  "venue": "binance",
+  "market_type": "spot",
+  "timeframe": "1m",
+  "start_utc": "2023-09-18T00:00:00+00:00",
+  "end_utc": "2023-09-30T23:59:00+00:00",
+  "row_count": 18720,
+  "parquet_path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\processed\\binance\\spot\\BTCUSDT\\1m\\year=2023\\month=09\\binance_spot_btcusdt_1m_202309.parquet",
+  "parquet_sha256": "f8d4ccd589fcd725bbb48f1de62d5004d788ca99ddb1979172b3b9561fd900eb",
+  "raw_source_files": [
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-18.zip",
+      "sha256": "5ad1d3897b0428c9f9df82ef66fa20f43f557d5ec89f7d3c5962cb0331aac586",
+      "size_bytes": 68723,
+      "type": "daily_archive_zip",
+      "day": 18
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-19.zip",
+      "sha256": "6689c6593aee4bcaa707adced69b75a2a507450fd745f1e2e40b520ccd98bdbf",
+      "size_bytes": 68076,
+      "type": "daily_archive_zip",
+      "day": 19
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-20.zip",
+      "sha256": "2ca4c45f0f3dbdd348632ebac1b3da7859ef08cb23527a8a17c0450be88bffdd",
+      "size_bytes": 68715,
+      "type": "daily_archive_zip",
+      "day": 20
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-21.zip",
+      "sha256": "1b7f8b37e80d385c68236363d1b7eb51e95949f3d231fad25a978bfda95b59d0",
+      "size_bytes": 67955,
+      "type": "daily_archive_zip",
+      "day": 21
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-22.zip",
+      "sha256": "499239be3e89417a066990e5cec625125ca590ac7f51b11316b929f37c66d49e",
+      "size_bytes": 66325,
+      "type": "daily_archive_zip",
+      "day": 22
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-23.zip",
+      "sha256": "a65cf1a0d40a1ffbbca3f5e4da90b7df0c379e3c7201850c8ab89a377f4891e5",
+      "size_bytes": 61507,
+      "type": "daily_archive_zip",
+      "day": 23
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-24.zip",
+      "sha256": "d9086dca419907cc33e45cda08d3d62b2e0491381b67f796fb1f5e2786cb51f9",
+      "size_bytes": 61618,
+      "type": "daily_archive_zip",
+      "day": 24
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-25.zip",
+      "sha256": "22e16dd25097cf80d42ed1119890fe966faca53c695d01e87dba9e96d6216acd",
+      "size_bytes": 67314,
+      "type": "daily_archive_zip",
+      "day": 25
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-26.zip",
+      "sha256": "913ed8fd83c14af023591383f474d2b6066040c745831dfc57830091163d3b3d",
+      "size_bytes": 65784,
+      "type": "daily_archive_zip",
+      "day": 26
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-27.zip",
+      "sha256": "83bf77d39e5dab3849ad7d4fdd4d7b7fe0925daf2d8c5143c51787cb19cc6322",
+      "size_bytes": 66555,
+      "type": "daily_archive_zip",
+      "day": 27
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-28.zip",
+      "sha256": "fc311a4abcd6324b18c100c36b585fad38615fdb879f4f192acd88b2acbe7053",
+      "size_bytes": 68948,
+      "type": "daily_archive_zip",
+      "day": 28
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-29.zip",
+      "sha256": "f788174bb96eebf3638a282449475ca5577661bab2a7cc38c22b6631bf8bf4ca",
+      "size_bytes": 67308,
+      "type": "daily_archive_zip",
+      "day": 29
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\2023-09\\BTCUSDT-1m-2023-09-30.zip",
+      "sha256": "a4005921d2ac76814bf295ad3d04795096edd39dbe1779e47ecb9c8d4488047a",
+      "size_bytes": 63402,
+      "type": "daily_archive_zip",
+      "day": 30
+    }
+  ],
+  "validation_status": "PASS",
+  "created_at_utc": "2026-09-19T10:30:38.340667+00:00",
+  "schema_version": "1.1.0"
+}
