@@ -33,15 +33,19 @@ coverage.xml
 logs/**/*.log
 logs/**/*.json
 
-# Runtime and generated data (allow .gitkeep)
+# Runtime and generated data (allow .gitkeep and provenance manifests)
 data/raw/*
 data/interim/*
 data/processed/*
 data/features/*
 data/metadata/*
+!data/metadata/manifests/
+!data/metadata/manifests/*.json
+data/metadata/checkpoints/*
 
-# Runtime and generated artifacts (allow .gitkeep and reports)
+# Runtime and generated artifacts (allow .gitkeep, reports, and dataset manifests)
 artifacts/datasets/*
+!artifacts/datasets/*.json
 artifacts/backtests/*
 artifacts/validation/*
 artifacts/models/*

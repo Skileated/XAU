@@ -4,7 +4,7 @@ import importlib
 import subprocess
 import sys
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 from rich.console import Console
 from rich.panel import Panel
@@ -335,10 +335,125 @@ def data_cmd() -> None:
             f"[bold green]Authoritative Manifest saved:[/bold green] "
             f"{auth_path} (SHA-256: {auth_hash[:16]}...)"
         )
+    elif action == "backfill":
+        from datetime import datetime, timezone
+
+        from xau_quant.data.backfill import BackfillEngine
+        from xau_quant.data.storage import ParquetCandleStorage
+
+        symbol = "BTCUSDT"
+        timeframe = "1m"
+        start_str: Optional[str] = None
+        end_str: Optional[str] = None
+        chunk_limit = 1000
+        resume = True
+
+        for i, a in enumerate(args):
+            if a in ("-s", "--symbol") and i + 1 < len(args):
+                symbol = args[i + 1]
+            if a in ("--start",) and i + 1 < len(args):
+                start_str = args[i + 1]
+            if a in ("--end",) and i + 1 < len(args):
+                end_str = args[i + 1]
+            if a in ("-l", "--chunk-limit") and i + 1 < len(args):
+                chunk_limit = int(args[i + 1])
+            if a == "--no-resume":
+                resume = False
+
+        if not start_str or not end_str:
+            console.print(
+                "[bold red]Error: --start and --end (ISO format) are required.[/bold red]"
+            )
+            sys.exit(1)
+
+        start_dt = datetime.fromisoformat(start_str)
+        end_dt = datetime.fromisoformat(end_str)
+        if start_dt.tzinfo is None:
+            start_dt = start_dt.replace(tzinfo=timezone.utc)
+        if end_dt.tzinfo is None:
+            end_dt = end_dt.replace(tzinfo=timezone.utc)
+
+        console.print(
+            f"[bold cyan]Starting historical backfill for {symbol} "
+            f"({start_dt.isoformat()} to {end_dt.isoformat()})...[/bold cyan]"
+        )
+
+        engine = BackfillEngine()
+        bf_res = engine.run(
+            symbol=symbol,
+            timeframe=timeframe,
+            start_utc=start_dt,
+            end_utc=end_dt,
+            chunk_limit=chunk_limit,
+            resume=resume,
+        )
+
+        val_status_str = (
+            "[green]PASS[/green]" if bf_res.validation_report.is_valid else "[red]FAIL[/red]"
+        )
+        console.print(
+            f"[bold green]Backfill completed in {bf_res.duration_seconds:.2f}s![/bold green]"
+        )
+        console.print(
+            f"  Chunks completed: "
+            f"{bf_res.checkpoint.chunks_completed}/{bf_res.checkpoint.total_chunks_planned}"
+        )
+        console.print(f"  Total 1m candles: {bf_res.total_records}")
+        console.print(f"  Validation status: {val_status_str}")
+        console.print(f"  Gaps detected: {len(bf_res.validation_report.gaps)}")
+
+        # Save Parquet
+        p_path, count, p_hash = ParquetCandleStorage.save_candles_to_parquet(
+            bf_res.candles, symbol=symbol, timeframe=timeframe
+        )
+        console.print(f"  Parquet stored at: [green]{p_path}[/green] (SHA-256: {p_hash[:16]}...)")
+    elif action == "resample":
+        from pathlib import Path
+
+        from xau_quant.data.resampler import MultiTimeframeResampler
+        from xau_quant.data.storage import ParquetCandleStorage
+
+        symbol = "BTCUSDT"
+        parquet_str: Optional[str] = None
+        tf_str = "5m,15m,1h,4h,1d"
+
+        for i, a in enumerate(args):
+            if a in ("-s", "--symbol") and i + 1 < len(args):
+                symbol = args[i + 1]
+            if a in ("-p", "--parquet") and i + 1 < len(args):
+                parquet_str = args[i + 1]
+            if a in ("-t", "--timeframes") and i + 1 < len(args):
+                tf_str = args[i + 1]
+
+        if not parquet_str:
+            console.print("[bold red]Error: --parquet path to 1m dataset required.[/bold red]")
+            sys.exit(1)
+
+        p_path = Path(parquet_str)
+        if not p_path.exists():
+            console.print(f"[bold red]File not found: {p_path}[/bold red]")
+            sys.exit(1)
+
+        candles_1m = ParquetCandleStorage.load_candles_from_parquet(p_path)
+        target_tfs = [t.strip() for t in tf_str.split(",")]
+        console.print(f"Loaded {len(candles_1m)} 1m candles. Resampling to {target_tfs}...")
+
+        results = MultiTimeframeResampler.resample_all(candles_1m, timeframes=target_tfs)
+        for tf, candles in results.items():
+            out_path, count, sha = ParquetCandleStorage.save_candles_to_parquet(
+                candles, symbol=symbol, timeframe=tf
+            )
+            complete = sum(1 for c in candles if c.is_complete)
+            console.print(
+                f"  [{tf}] Generated {count} candles ({complete}/{count} complete) -> "
+                f"{out_path.name} (SHA-256: {sha[:12]}...)"
+            )
     else:
         console.print(
             "Data commands:\n"
             "  xau data acquire --symbol BTCUSDT --limit 120 --timeframe 1m\n"
+            "  xau data backfill --symbol BTCUSDT --start <start_iso> --end <end_iso>\n"
+            "  xau data resample --symbol BTCUSDT --parquet <path> --timeframes 5m,15m,1h,4h,1d\n"
             "  xau data ws-test --symbol BTCUSDT --duration 5"
         )
 

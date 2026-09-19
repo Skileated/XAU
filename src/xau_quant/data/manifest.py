@@ -6,7 +6,7 @@ import shutil
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 from xau_quant.common.paths import project_paths
 from xau_quant.data.validator import ValidationReport
@@ -36,6 +36,10 @@ class ProvenanceManifest:
     normalized_row_count: int
     validation_status: str  # "PASS" or "FAIL"
     validation_summary: Dict[str, Any]
+    parent_manifest_id: Optional[str] = None
+    constituent_timeframe: Optional[str] = None
+    raw_chunks_count: Optional[int] = None
+    raw_files_hashes: Optional[List[Dict[str, str]]] = None
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert manifest to JSON-serializable dictionary."""
@@ -97,12 +101,18 @@ class ProvenanceManifest:
         actual_start: Optional[str] = None,
         actual_end: Optional[str] = None,
         schema_version: str = "1.0.0",
+        parent_manifest_id: Optional[str] = None,
+        constituent_timeframe: Optional[str] = None,
+        raw_chunks_count: Optional[int] = None,
+        raw_files_hashes: Optional[List[Dict[str, str]]] = None,
     ) -> "ProvenanceManifest":
         """Build ProvenanceManifest from actual file paths and validation findings."""
-        raw_bytes = raw_file_path.read_bytes()
-        norm_bytes = normalized_file_path.read_bytes()
+        raw_sha256 = ""
+        if raw_file_path.exists():
+            raw_bytes = raw_file_path.read_bytes()
+            raw_sha256 = hashlib.sha256(raw_bytes).hexdigest()
 
-        raw_sha256 = hashlib.sha256(raw_bytes).hexdigest()
+        norm_bytes = normalized_file_path.read_bytes()
         norm_sha256 = hashlib.sha256(norm_bytes).hexdigest()
 
         acq_time_utc = datetime.now(timezone.utc).isoformat()
@@ -129,4 +139,8 @@ class ProvenanceManifest:
             normalized_row_count=normalized_row_count,
             validation_status=val_status,
             validation_summary=validation_report.summary_dict(),
+            parent_manifest_id=parent_manifest_id,
+            constituent_timeframe=constituent_timeframe,
+            raw_chunks_count=raw_chunks_count,
+            raw_files_hashes=raw_files_hashes,
         )

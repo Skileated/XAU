@@ -1,0 +1,80 @@
+{
+  "dataset_id": "binance_spot_btcusdt_1m_202609110000_202609180000",
+  "venue": "binance",
+  "instrument": "BTCUSDT",
+  "market_type": "spot",
+  "timeframe": "1m",
+  "source_endpoint": "https://api.binance.com/api/v3/klines",
+  "requested_start": "2026-09-11T00:00:00+00:00",
+  "requested_end": "2026-09-18T00:00:00+00:00",
+  "actual_start": "2026-09-11T00:00:00+00:00",
+  "actual_end": "2026-09-17T23:59:00+00:00",
+  "acquisition_timestamp_utc": "2026-09-19T09:56:58.014752+00:00",
+  "schema_version": "1.0.0",
+  "raw_file_path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789084800000_1789144740000_20260919_095222_raw.json",
+  "raw_file_hash_sha256": "32eeffc250180dd5c482f80fea68249c7acae9826c8bafdb8ef90e6907fbaf7d",
+  "normalized_file_path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\processed\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_20260911_000000_to_20260917_235900.parquet",
+  "normalized_file_hash_sha256": "c717bf3f0e1e31a61d374fbe90c008e47840d02b0d57475d30e7970c3381d09e",
+  "raw_row_count": 10080,
+  "normalized_row_count": 10080,
+  "validation_status": "PASS",
+  "validation_summary": {
+    "is_valid": true,
+    "total_records": 10080,
+    "valid_records_count": 10080,
+    "invalid_records_count": 0,
+    "duplicate_count": 0,
+    "conflicting_duplicate_count": 0,
+    "gaps_count": 0,
+    "total_issues_count": 0
+  },
+  "parent_manifest_id": null,
+  "constituent_timeframe": null,
+  "raw_chunks_count": 11,
+  "raw_files_hashes": [
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789084800000_1789144740000_20260919_095222_raw.json",
+      "sha256": "32eeffc250180dd5c482f80fea68249c7acae9826c8bafdb8ef90e6907fbaf7d"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789144800000_1789204740000_20260919_095223_raw.json",
+      "sha256": "27d408861b56cd25890f6dd26647b32c76a304baf5e21ccb7e3a9dfaad097d60"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789204800000_1789264740000_20260919_095223_raw.json",
+      "sha256": "6f7d23099bb9780f13edbee0ce34f9217d7e045f978c2008004bde46fffe4262"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789264800000_1789324740000_20260919_095224_raw.json",
+      "sha256": "398deceba56ab4979f5847485174f9c6ce7496bbc1032e37203bc3b92d91303d"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789324800000_1789384740000_20260919_095224_raw.json",
+      "sha256": "512f7e073a1449ed9f36ddd9e3b7124718869aee0529e17f7ca4afaecb491163"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789384800000_1789444740000_20260919_095225_raw.json",
+      "sha256": "611ba181d46458dc525509dd31dab0faf6e736d70529ea92ef4e459563304358"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789444800000_1789504740000_20260919_095225_raw.json",
+      "sha256": "1fd5ef0e98378ddea3d73361d68e83737ce7436d4846e418f1e667521e319f4a"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789504800000_1789564740000_20260919_095226_raw.json",
+      "sha256": "98051b31493ffbb2d9938097c093fb5a9f1a6f5729b42e18577452b31733e741"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789564800000_1789624740000_20260919_095226_raw.json",
+      "sha256": "33da3167bfe8ecf083fe502a36443f2b52bfe59808c1035d365d4e1bca5f3f29"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789624800000_1789684740000_20260919_095227_raw.json",
+      "sha256": "96a0b9ff30e867b395d1fcb7633efdbe6942d8ad0e5b84dd27d6aa905bbc67b5"
+    },
+    {
+      "path": "D:\\Nishant\\Nishant Projects\\XAU\\data\\raw\\binance\\spot\\BTCUSDT\\1m\\binance_spot_btcusdt_1m_1789684800000_1789689540000_20260919_095227_raw.json",
+      "sha256": "1d439a3a412f17e58f56ef7071d902a9ef20914f472340ea07ced2177e57c6d6"
+    }
+  ]
+}
