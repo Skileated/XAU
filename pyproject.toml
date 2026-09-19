@@ -18,6 +18,8 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "rich>=13.7.0",
     "duckdb>=1.0.0",
+    "websockets>=13.0.0",
+    "pytz>=2024.1",
 ]
 
 [project.optional-dependencies]
@@ -40,6 +42,9 @@ where = ["src"]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-v --strict-markers"
+markers = [
+    "network: marks tests requiring external live network access (deselect with -m 'not network')",
+]
 
 [tool.ruff]
 line-length = 100

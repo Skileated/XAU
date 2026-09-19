@@ -12,9 +12,7 @@ class LoggingConfig(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
-    level: str = Field(
-        default="INFO", description="Minimum log level: DEBUG, INFO, WARNING, ERROR"
-    )
+    level: str = Field(default="INFO", description="Minimum log level: DEBUG, INFO, WARNING, ERROR")
     format: str = Field(default="text", description="Log format style: text or json")
     max_bytes: int = Field(
         default=10 * 1024 * 1024, description="Log rotation max file size in bytes"
@@ -37,12 +35,14 @@ class StorageConfig(BaseModel):
 class DataConfig(BaseModel):
     """Market data parameters (metadata only, no fake data)."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
 
     primary_symbol: str = Field(default="XAUUSD", description="Target market instrument")
-    base_currency: str = Field(default="XAU", description="Base asset (Gold)")
+    base_currency: str = Field(default="XAU", description="Base asset")
     quote_currency: str = Field(default="USD", description="Quote currency")
     timezone: str = Field(default="UTC", description="Standardized timestamp timezone")
+    venue: str = Field(default="binance", description="Primary data venue")
+    market_type: str = Field(default="spot", description="Market segment")
 
 
 class AppConfig(BaseModel):

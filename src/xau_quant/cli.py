@@ -40,7 +40,7 @@ class SystemHealthChecker:
         try:
             is_same = prefix.samefile(expected_venv)
         except Exception:
-            is_same = (str(prefix).lower() == str(expected_venv).lower())
+            is_same = str(prefix).lower() == str(expected_venv).lower()
 
         is_venv = is_same or (sys.base_prefix != sys.prefix and ".venv" in str(prefix).lower())
         msg = f"Virtualenv Path: {prefix} (Project Local: {is_same})"
@@ -75,6 +75,7 @@ class SystemHealthChecker:
             ("dotenv", "python-dotenv"),
             ("rich", "rich"),
             ("duckdb", "duckdb"),
+            ("websockets", "websockets"),
             ("pytest", "pytest"),
         ]
         missing = []
@@ -226,16 +227,140 @@ def health_cmd() -> None:
     sys.exit(0 if success else 1)
 
 
+def data_cmd() -> None:
+    """CLI handler for market data operations."""
+    console = Console()
+    args = sys.argv[2:]
+    action = args[0] if args else "help"
+
+    if action == "ws-test":
+        symbol = "BTCUSDT"
+        duration = 5.0
+        for i, a in enumerate(args):
+            if a in ("-s", "--symbol") and i + 1 < len(args):
+                symbol = args[i + 1]
+            if a in ("-d", "--duration") and i + 1 < len(args):
+                duration = float(args[i + 1])
+
+        console.print(
+            f"[bold cyan]Connecting to Binance public WebSocket "
+            f"({symbol}@trade) for {duration}s...[/bold cyan]"
+        )
+        from xau_quant.data.binance import BinanceSpotProvider
+
+        provider = BinanceSpotProvider()
+        res = provider.test_websocket(symbol=symbol, duration_seconds=duration)
+        console.print("[bold green]WebSocket Test Completed cleanly:[/bold green]")
+        console.print(f"  Stream: {res['stream_used']}")
+        console.print(f"  Connect duration: {res['connect_duration_seconds']}s")
+        console.print(f"  Clock skew (local - server): {res['clock_skew_ms']}ms")
+        console.print(f"  Messages received: {res['messages_received_count']}")
+        console.print(f"  Average latency: {res['average_latency_ms']}ms")
+        console.print(f"  Clean shutdown: {res['clean_shutdown']}")
+    elif action == "acquire":
+        symbol = "BTCUSDT"
+        limit = 120
+        timeframe = "1m"
+        for i, a in enumerate(args):
+            if a in ("-s", "--symbol") and i + 1 < len(args):
+                symbol = args[i + 1]
+            if a in ("-l", "--limit") and i + 1 < len(args):
+                limit = int(args[i + 1])
+            if a in ("-t", "--timeframe") and i + 1 < len(args):
+                timeframe = args[i + 1]
+
+        console.print(
+            f"[bold cyan]Acquiring {limit} {timeframe} candles "
+            f"for {symbol} from Binance Spot...[/bold cyan]"
+        )
+        from xau_quant.data.binance import BinanceSpotProvider
+        from xau_quant.data.manifest import ProvenanceManifest
+        from xau_quant.data.normalizer import BinanceKlineNormalizer
+        from xau_quant.data.storage import ParquetCandleStorage
+        from xau_quant.data.validator import MarketDataValidator
+
+        provider = BinanceSpotProvider()
+        raw_path, raw_bytes, meta = provider.fetch_historical_raw(
+            symbol=symbol, interval=timeframe, limit=limit
+        )
+        console.print(
+            f"[green]Raw data saved:[/green] {raw_path} (SHA-256: {meta['sha256'][:16]}...)"
+        )
+
+        candles = BinanceKlineNormalizer.normalize_payload(
+            raw_bytes, instrument=symbol, timeframe=timeframe
+        )
+        console.print(f"[green]Normalized:[/green] {len(candles)} CanonicalCandle instances")
+
+        validator = MarketDataValidator(expected_timeframe=timeframe)
+        report = validator.validate(candles)
+        status_str = (
+            "[bold green]PASS[/bold green]" if report.is_valid else "[bold red]FAIL[/bold red]"
+        )
+        console.print(
+            f"Validation: {status_str} ("
+            f"{report.valid_records_count}/{report.total_records} valid, "
+            f"{len(report.gaps)} gaps, {len(report.issues)} issues)"
+        )
+
+        parquet_path, row_count, parquet_hash = ParquetCandleStorage.save_candles_to_parquet(
+            candles, symbol=symbol, timeframe=timeframe
+        )
+        console.print(
+            f"[green]Stored Parquet:[/green] {parquet_path} (SHA-256: {parquet_hash[:16]}...)"
+        )
+
+        import uuid
+
+        dataset_id = f"binance_spot_{symbol.lower()}_{timeframe}_{uuid.uuid4().hex[:8]}"
+        manifest = ProvenanceManifest.build(
+            dataset_id=dataset_id,
+            venue="binance",
+            instrument=symbol,
+            market_type="spot",
+            timeframe=timeframe,
+            source_endpoint=meta["endpoint"],
+            raw_file_path=raw_path,
+            normalized_file_path=parquet_path,
+            raw_row_count=len(candles),
+            normalized_row_count=row_count,
+            validation_report=report,
+            requested_start=None,
+            requested_end=None,
+            actual_start=candles[0].timestamp_utc.isoformat(),
+            actual_end=candles[-1].timestamp_utc.isoformat(),
+        )
+        auth_path, auth_hash = manifest.save_authoritative()
+        console.print(
+            f"[bold green]Authoritative Manifest saved:[/bold green] "
+            f"{auth_path} (SHA-256: {auth_hash[:16]}...)"
+        )
+    else:
+        console.print(
+            "Data commands:\n"
+            "  xau data acquire --symbol BTCUSDT --limit 120 --timeframe 1m\n"
+            "  xau data ws-test --symbol BTCUSDT --duration 5"
+        )
+
+
 def main() -> None:
     """Primary CLI entrypoint."""
-    if len(sys.argv) > 1 and sys.argv[1] == "health":
-        health_cmd()
+    if len(sys.argv) > 1:
+        cmd = sys.argv[1]
+        if cmd == "health":
+            health_cmd()
+        elif cmd == "data":
+            data_cmd()
+        else:
+            Console().print(f"[red]Unknown command: {cmd}[/red]")
+            sys.exit(1)
     else:
         console = Console()
         console.print(
             f"[bold gold1]XAUUSD Quantitative Platform[/bold gold1] v{__version__}\n"
             "Usage:\n"
             "  xau health       Run environment and subsystem diagnostics\n"
+            "  xau data ...     Market data operations (acquire, ws-test)\n"
             "  xau-health       Direct alias for health check"
         )
 
