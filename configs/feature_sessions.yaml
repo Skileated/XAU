@@ -1,0 +1,16 @@
+# configs/feature_sessions.yaml
+# Trading session definitions for the market feature engine
+schema_version: "1.0.0"
+sessions:
+  - name: asian
+    utc_start_hour: 0
+    utc_end_hour: 8    # exclusive [00:00, 08:00) UTC
+    bit: 1
+  - name: london
+    utc_start_hour: 7
+    utc_end_hour: 16   # exclusive [07:00, 16:00) UTC
+    bit: 2
+  - name: new_york
+    utc_start_hour: 13
+    utc_end_hour: 22   # exclusive [13:00, 22:00) UTC
+    bit: 4

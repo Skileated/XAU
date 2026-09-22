@@ -1,0 +1,2035 @@
+{
+  "schema_version": "2.0.0",
+  "feature_set_version": "v2.0.0",
+  "dataset_id": "btcusdt_5m_features_v2.0.0",
+  "created_at_utc": "2026-09-22T05:53:59.828132+00:00",
+  "input_dataset": {
+    "dataset_version": "v1.1.0",
+    "dataset_id": "binance_spot_btcusdt_canonical_v1.1.0",
+    "manifest_path": "D:/Nishant/Nishant Projects/XAU/data/metadata/manifests/binance_spot_btcusdt_canonical_v1.1.0_manifest.json",
+    "manifest_sha256": "bbed6aea4b69a90f2b8b6f7886a8cc74b3f8da6095ed66b7736531fefbab9c5a",
+    "venue": "binance",
+    "instrument": "BTCUSDT",
+    "timeframe": "5m",
+    "total_canonical_rows": 315648
+  },
+  "engine": {
+    "name": "xau_quant.features",
+    "version": "2.0.0",
+    "duckdb_version": "1.5.5",
+    "python_version": "3.12.2",
+    "platform": "win32"
+  },
+  "session_definition_version": "1.0.0",
+  "feature_clock": {
+    "primary_timeframe": "5m",
+    "context_timeframes": [
+      "1m",
+      "15m",
+      "1h"
+    ],
+    "alignment_rule": "latest_completed_htf_candle_at_close"
+  },
+  "coverage": {
+    "first_timestamp_utc": "2023-09-18T00:00:00+00:00",
+    "last_timestamp_utc": "2026-09-17T23:55:00+00:00",
+    "total_rows": 315648,
+    "valid_rows": 315337,
+    "warmup_rows": 311,
+    "gap_rows": 0,
+    "domain_nan_rows": 3626,
+    "warmup_threshold_bars": 311
+  },
+  "feature_catalog": {
+    "total_features": 108,
+    "total_columns": 128,
+    "max_required_history_bars": 311,
+    "counts_by_family": {
+      "returns": 12,
+      "momentum": 17,
+      "volatility": 11,
+      "liquidity": 11,
+      "structure": 22,
+      "mean_reversion": 9,
+      "time": 9,
+      "mtf": 17
+    },
+    "features": [
+      {
+        "name": "ret_log_cc_1",
+        "family": "returns",
+        "required_history_bars": 2,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_cc_1",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ret_log_cc_3",
+        "family": "returns",
+        "required_history_bars": 4,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_cc_3",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ret_log_cc_6",
+        "family": "returns",
+        "required_history_bars": 7,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_cc_6",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ret_log_cc_12",
+        "family": "returns",
+        "required_history_bars": 13,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_cc_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ret_log_cc_24",
+        "family": "returns",
+        "required_history_bars": 25,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_cc_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ret_log_cc_48",
+        "family": "returns",
+        "required_history_bars": 49,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_cc_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ret_log_cc_96",
+        "family": "returns",
+        "required_history_bars": 97,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_cc_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ret_log_oc",
+        "family": "returns",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ret_log_oc",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "price_body_ratio",
+        "family": "returns",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "price_body_ratio",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "price_upper_wick_ratio",
+        "family": "returns",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "price_upper_wick_ratio",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "price_lower_wick_ratio",
+        "family": "returns",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "price_lower_wick_ratio",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "price_midpoint",
+        "family": "returns",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "price_midpoint",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_roc_6",
+        "family": "momentum",
+        "required_history_bars": 7,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_roc_6",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_roc_12",
+        "family": "momentum",
+        "required_history_bars": 13,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_roc_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_roc_24",
+        "family": "momentum",
+        "required_history_bars": 25,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_roc_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_roc_48",
+        "family": "momentum",
+        "required_history_bars": 49,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_roc_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_slope_12",
+        "family": "momentum",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_slope_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_slope_24",
+        "family": "momentum",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_slope_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_slope_48",
+        "family": "momentum",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_slope_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_sma_dev_12",
+        "family": "momentum",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_sma_dev_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_sma_dev_24",
+        "family": "momentum",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_sma_dev_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_sma_dev_48",
+        "family": "momentum",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_sma_dev_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_sma_dev_96",
+        "family": "momentum",
+        "required_history_bars": 96,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_sma_dev_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_ema_dev_12",
+        "family": "momentum",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_ema_dev_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_ema_dev_26",
+        "family": "momentum",
+        "required_history_bars": 26,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_ema_dev_26",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_ema_dev_50",
+        "family": "momentum",
+        "required_history_bars": 50,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_ema_dev_50",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_macd_hist",
+        "family": "momentum",
+        "required_history_bars": 34,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_macd_hist",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_rsi_14",
+        "family": "momentum",
+        "required_history_bars": 15,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_rsi_14",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mom_rsi_28",
+        "family": "momentum",
+        "required_history_bars": 29,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mom_rsi_28",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_atr_14",
+        "family": "volatility",
+        "required_history_bars": 15,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_atr_14",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_atr_pct_14",
+        "family": "volatility",
+        "required_history_bars": 15,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_atr_pct_14",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_atr_28",
+        "family": "volatility",
+        "required_history_bars": 29,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_atr_28",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_atr_pct_28",
+        "family": "volatility",
+        "required_history_bars": 29,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_atr_pct_28",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_realized_12",
+        "family": "volatility",
+        "required_history_bars": 13,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_realized_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_realized_24",
+        "family": "volatility",
+        "required_history_bars": 25,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_realized_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_realized_48",
+        "family": "volatility",
+        "required_history_bars": 49,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_realized_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_realized_96",
+        "family": "volatility",
+        "required_history_bars": 97,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_realized_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_gk_realized_12",
+        "family": "volatility",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_gk_realized_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_gk_realized_24",
+        "family": "volatility",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_gk_realized_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "vol_zscore_12_96",
+        "family": "volatility",
+        "required_history_bars": 108,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "vol_zscore_12_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_taker_buy_ratio",
+        "family": "liquidity",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_taker_buy_ratio",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_avg_trade_size",
+        "family": "liquidity",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_avg_trade_size",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_dollar_volume",
+        "family": "liquidity",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_dollar_volume",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_delta_proxy",
+        "family": "liquidity",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_delta_proxy",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_vwap_dev_12",
+        "family": "liquidity",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_vwap_dev_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_vwap_dev_48",
+        "family": "liquidity",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_vwap_dev_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_vol_ratio_12",
+        "family": "liquidity",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_vol_ratio_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_vol_ratio_24",
+        "family": "liquidity",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_vol_ratio_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_vol_ratio_48",
+        "family": "liquidity",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_vol_ratio_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_cum_delta_12",
+        "family": "liquidity",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_cum_delta_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "liq_cum_delta_48",
+        "family": "liquidity",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "liq_cum_delta_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_high_12",
+        "family": "structure",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_high_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_low_12",
+        "family": "structure",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_low_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_price_position_12",
+        "family": "structure",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_price_position_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_high_24",
+        "family": "structure",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_high_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_low_24",
+        "family": "structure",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_low_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_price_position_24",
+        "family": "structure",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_price_position_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_high_48",
+        "family": "structure",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_high_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_low_48",
+        "family": "structure",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_low_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_price_position_48",
+        "family": "structure",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_price_position_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_high_96",
+        "family": "structure",
+        "required_history_bars": 96,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_high_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_low_96",
+        "family": "structure",
+        "required_history_bars": 96,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_low_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_price_position_96",
+        "family": "structure",
+        "required_history_bars": 96,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_price_position_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_bars_since_high_24",
+        "family": "structure",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_bars_since_high_24",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_bars_since_low_24",
+        "family": "structure",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_bars_since_low_24",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_bars_since_high_96",
+        "family": "structure",
+        "required_history_bars": 96,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_bars_since_high_96",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_bars_since_low_96",
+        "family": "structure",
+        "required_history_bars": 96,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_bars_since_low_96",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_pivot_high_3",
+        "family": "structure",
+        "required_history_bars": 7,
+        "estimator_type": "exact",
+        "temporal_semantics": "confirmation_lag_s",
+        "columns": [
+          {
+            "name": "ms_is_pivot_high_3",
+            "type": "BOOLEAN",
+            "nullable": false
+          },
+          {
+            "name": "ms_pivot_high_timestamp_3",
+            "type": "TIMESTAMPTZ",
+            "nullable": true
+          },
+          {
+            "name": "ms_pivot_high_age_bars_3",
+            "type": "SMALLINT",
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "ms_pivot_low_3",
+        "family": "structure",
+        "required_history_bars": 7,
+        "estimator_type": "exact",
+        "temporal_semantics": "confirmation_lag_s",
+        "columns": [
+          {
+            "name": "ms_is_pivot_low_3",
+            "type": "BOOLEAN",
+            "nullable": false
+          },
+          {
+            "name": "ms_pivot_low_timestamp_3",
+            "type": "TIMESTAMPTZ",
+            "nullable": true
+          },
+          {
+            "name": "ms_pivot_low_age_bars_3",
+            "type": "SMALLINT",
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "ms_pivot_high_5",
+        "family": "structure",
+        "required_history_bars": 11,
+        "estimator_type": "exact",
+        "temporal_semantics": "confirmation_lag_s",
+        "columns": [
+          {
+            "name": "ms_is_pivot_high_5",
+            "type": "BOOLEAN",
+            "nullable": false
+          },
+          {
+            "name": "ms_pivot_high_timestamp_5",
+            "type": "TIMESTAMPTZ",
+            "nullable": true
+          },
+          {
+            "name": "ms_pivot_high_age_bars_5",
+            "type": "SMALLINT",
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "ms_pivot_low_5",
+        "family": "structure",
+        "required_history_bars": 11,
+        "estimator_type": "exact",
+        "temporal_semantics": "confirmation_lag_s",
+        "columns": [
+          {
+            "name": "ms_is_pivot_low_5",
+            "type": "BOOLEAN",
+            "nullable": false
+          },
+          {
+            "name": "ms_pivot_low_timestamp_5",
+            "type": "TIMESTAMPTZ",
+            "nullable": true
+          },
+          {
+            "name": "ms_pivot_low_age_bars_5",
+            "type": "SMALLINT",
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "ms_consec_up_5",
+        "family": "structure",
+        "required_history_bars": 6,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_consec_up_5",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "ms_consec_down_5",
+        "family": "structure",
+        "required_history_bars": 6,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "ms_consec_down_5",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_zscore_24",
+        "family": "mean_reversion",
+        "required_history_bars": 24,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_zscore_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_zscore_48",
+        "family": "mean_reversion",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_zscore_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_zscore_96",
+        "family": "mean_reversion",
+        "required_history_bars": 96,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_zscore_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_mean_dev_12",
+        "family": "mean_reversion",
+        "required_history_bars": 12,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_mean_dev_12",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_mean_dev_48",
+        "family": "mean_reversion",
+        "required_history_bars": 48,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_mean_dev_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_hurst_proxy_48",
+        "family": "mean_reversion",
+        "required_history_bars": 49,
+        "estimator_type": "rs_single_window_proxy",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_hurst_proxy_48",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_hurst_proxy_96",
+        "family": "mean_reversion",
+        "required_history_bars": 97,
+        "estimator_type": "rs_single_window_proxy",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_hurst_proxy_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_autocorr_lag1_24",
+        "family": "mean_reversion",
+        "required_history_bars": 26,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_autocorr_lag1_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mr_autocorr_lag1_96",
+        "family": "mean_reversion",
+        "required_history_bars": 98,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mr_autocorr_lag1_96",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_hour_utc",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_hour_utc",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_dow",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_dow",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_hour_sin",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_hour_sin",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_hour_cos",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_hour_cos",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_dow_sin",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_dow_sin",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_dow_cos",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_dow_cos",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_session_flags",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_session_flags",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_bars_since_midnight",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_bars_since_midnight",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "time_bars_since_week_open",
+        "family": "time",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "time_bars_since_week_open",
+            "type": "SMALLINT",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_15m_ret_log_cc_4",
+        "family": "mtf",
+        "required_history_bars": 17,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_15m_ret_log_cc_4",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_15m_ret_log_cc_16",
+        "family": "mtf",
+        "required_history_bars": 53,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_15m_ret_log_cc_16",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_15m_mom_rsi_14",
+        "family": "mtf",
+        "required_history_bars": 47,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_15m_mom_rsi_14",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_15m_vol_atr_pct_14",
+        "family": "mtf",
+        "required_history_bars": 47,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_15m_vol_atr_pct_14",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_15m_price_position_16",
+        "family": "mtf",
+        "required_history_bars": 50,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_15m_price_position_16",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_15m_liq_taker_buy_ratio",
+        "family": "mtf",
+        "required_history_bars": 5,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_15m_liq_taker_buy_ratio",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_15m_liq_vol_ratio_16",
+        "family": "mtf",
+        "required_history_bars": 50,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_15m_liq_vol_ratio_16",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1h_ret_log_cc_4",
+        "family": "mtf",
+        "required_history_bars": 71,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1h_ret_log_cc_4",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1h_ret_log_cc_24",
+        "family": "mtf",
+        "required_history_bars": 311,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1h_ret_log_cc_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1h_mom_rsi_14",
+        "family": "mtf",
+        "required_history_bars": 191,
+        "estimator_type": "wilder_smoothed",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1h_mom_rsi_14",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1h_vol_realized_24",
+        "family": "mtf",
+        "required_history_bars": 311,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1h_vol_realized_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1h_price_position_24",
+        "family": "mtf",
+        "required_history_bars": 299,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1h_price_position_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1h_mr_zscore_24",
+        "family": "mtf",
+        "required_history_bars": 299,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1h_mr_zscore_24",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1h_liq_taker_buy_ratio",
+        "family": "mtf",
+        "required_history_bars": 23,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1h_liq_taker_buy_ratio",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1m_vol_dispersion",
+        "family": "mtf",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1m_vol_dispersion",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1m_taker_trend",
+        "family": "mtf",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1m_taker_trend",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      },
+      {
+        "name": "mtf_1m_return_skew",
+        "family": "mtf",
+        "required_history_bars": 1,
+        "estimator_type": "exact",
+        "temporal_semantics": "point_in_time",
+        "columns": [
+          {
+            "name": "mtf_1m_return_skew",
+            "type": "DOUBLE",
+            "nullable": false
+          }
+        ]
+      }
+    ]
+  },
+  "determinism": {
+    "dataset_sha256": "ff2fa728c1aa025266cc59b5b3e2ad60708fc6790c37997605cdb902258708ed",
+    "partitions_count": 37,
+    "determinism_target_same_runtime": "byte_identical_parquet",
+    "determinism_target_cross_runtime": "identical_schema_ordering_and_float_tolerance"
+  },
+  "storage": {
+    "format": "parquet",
+    "compression": "zstd",
+    "partitioning": [
+      "year",
+      "month"
+    ],
+    "partitions": [
+      {
+        "year": 2023,
+        "month": 9,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=09/btcusdt_5m_features_v2.0.0_202309.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=09/btcusdt_5m_features_v2.0.0_202309.parquet",
+        "row_count": 3744,
+        "sha256": "e4483cd496a98402c9ed79df2c26ed92cae064cf5fda4e3b15fa4e69a5a7972f",
+        "first_timestamp_utc": "2023-09-18T00:00:00+00:00",
+        "last_timestamp_utc": "2023-09-30T23:55:00+00:00",
+        "size_bytes": 2008556
+      },
+      {
+        "year": 2023,
+        "month": 10,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=10/btcusdt_5m_features_v2.0.0_202310.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=10/btcusdt_5m_features_v2.0.0_202310.parquet",
+        "row_count": 8928,
+        "sha256": "a8099e25f391a0adda5188ba26dcb1d08fe529adb32e69448b28ac1926582e6c",
+        "first_timestamp_utc": "2023-10-01T00:00:00+00:00",
+        "last_timestamp_utc": "2023-10-31T23:55:00+00:00",
+        "size_bytes": 4796470
+      },
+      {
+        "year": 2023,
+        "month": 11,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=11/btcusdt_5m_features_v2.0.0_202311.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=11/btcusdt_5m_features_v2.0.0_202311.parquet",
+        "row_count": 8640,
+        "sha256": "f2ee386f0f72444e11059bd7039f1a2d3dba5151f9f066297428f549b6ba50bf",
+        "first_timestamp_utc": "2023-11-01T00:00:00+00:00",
+        "last_timestamp_utc": "2023-11-30T23:55:00+00:00",
+        "size_bytes": 4652353
+      },
+      {
+        "year": 2023,
+        "month": 12,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=12/btcusdt_5m_features_v2.0.0_202312.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2023/month=12/btcusdt_5m_features_v2.0.0_202312.parquet",
+        "row_count": 8928,
+        "sha256": "8cf81d473df902a2f2147df1725ab9064350e40d4e150cd55956f77edabc65c3",
+        "first_timestamp_utc": "2023-12-01T00:00:00+00:00",
+        "last_timestamp_utc": "2023-12-31T23:55:00+00:00",
+        "size_bytes": 4811777
+      },
+      {
+        "year": 2024,
+        "month": 1,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=01/btcusdt_5m_features_v2.0.0_202401.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=01/btcusdt_5m_features_v2.0.0_202401.parquet",
+        "row_count": 8928,
+        "sha256": "01b73b0367ce698831651afc007d00e66bbbb76d3df7990a27b4bdde40b281ed",
+        "first_timestamp_utc": "2024-01-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-01-31T23:55:00+00:00",
+        "size_bytes": 4818335
+      },
+      {
+        "year": 2024,
+        "month": 2,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=02/btcusdt_5m_features_v2.0.0_202402.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=02/btcusdt_5m_features_v2.0.0_202402.parquet",
+        "row_count": 8352,
+        "sha256": "9b37cdcab3fb81461890922573cd84cc82705967eb9561abe53167a76cc1862c",
+        "first_timestamp_utc": "2024-02-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-02-29T23:55:00+00:00",
+        "size_bytes": 4506162
+      },
+      {
+        "year": 2024,
+        "month": 3,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=03/btcusdt_5m_features_v2.0.0_202403.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=03/btcusdt_5m_features_v2.0.0_202403.parquet",
+        "row_count": 8928,
+        "sha256": "de42088c90a16152ead0e3f6ff8d3f2485d11126cda3b09bc45b11d29de77041",
+        "first_timestamp_utc": "2024-03-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-03-31T23:55:00+00:00",
+        "size_bytes": 4822895
+      },
+      {
+        "year": 2024,
+        "month": 4,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=04/btcusdt_5m_features_v2.0.0_202404.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=04/btcusdt_5m_features_v2.0.0_202404.parquet",
+        "row_count": 8640,
+        "sha256": "be3a8863549b601589cc6e48724cdbc26e8e6008179ca89bcf7ba4fa82480a94",
+        "first_timestamp_utc": "2024-04-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-04-30T23:55:00+00:00",
+        "size_bytes": 4666146
+      },
+      {
+        "year": 2024,
+        "month": 5,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=05/btcusdt_5m_features_v2.0.0_202405.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=05/btcusdt_5m_features_v2.0.0_202405.parquet",
+        "row_count": 8928,
+        "sha256": "ce0e7799a728bb3fa0e8370b7c4ff2fdf8fab4840155b9eb1329ffd5863e99f8",
+        "first_timestamp_utc": "2024-05-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-05-31T23:55:00+00:00",
+        "size_bytes": 4811684
+      },
+      {
+        "year": 2024,
+        "month": 6,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=06/btcusdt_5m_features_v2.0.0_202406.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=06/btcusdt_5m_features_v2.0.0_202406.parquet",
+        "row_count": 8640,
+        "sha256": "f4d16898a1fb2cca3732a79167eceb4d7825020abb0ca762b2704cdec933886a",
+        "first_timestamp_utc": "2024-06-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-06-30T23:55:00+00:00",
+        "size_bytes": 4643697
+      },
+      {
+        "year": 2024,
+        "month": 7,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=07/btcusdt_5m_features_v2.0.0_202407.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=07/btcusdt_5m_features_v2.0.0_202407.parquet",
+        "row_count": 8928,
+        "sha256": "64ff158a7daa7da378a614f396f71d28cd65143a05f57e1f9c7d42297bb852a5",
+        "first_timestamp_utc": "2024-07-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-07-31T23:55:00+00:00",
+        "size_bytes": 4816458
+      },
+      {
+        "year": 2024,
+        "month": 8,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=08/btcusdt_5m_features_v2.0.0_202408.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=08/btcusdt_5m_features_v2.0.0_202408.parquet",
+        "row_count": 8928,
+        "sha256": "01b97089bf0622d685380b9595d16587acbc00de88c8d82d2d42a1e76772a670",
+        "first_timestamp_utc": "2024-08-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-08-31T23:55:00+00:00",
+        "size_bytes": 4821978
+      },
+      {
+        "year": 2024,
+        "month": 9,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=09/btcusdt_5m_features_v2.0.0_202409.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=09/btcusdt_5m_features_v2.0.0_202409.parquet",
+        "row_count": 8640,
+        "sha256": "545a12ebb58747552e87fff76649b730936ae053483c01ff6872e3ec5ebc1418",
+        "first_timestamp_utc": "2024-09-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-09-30T23:55:00+00:00",
+        "size_bytes": 4654833
+      },
+      {
+        "year": 2024,
+        "month": 10,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=10/btcusdt_5m_features_v2.0.0_202410.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=10/btcusdt_5m_features_v2.0.0_202410.parquet",
+        "row_count": 8928,
+        "sha256": "8c2b9b9c5f445375be429cf393b7a9dc357ce41c807a1827729e1655756658f0",
+        "first_timestamp_utc": "2024-10-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-10-31T23:55:00+00:00",
+        "size_bytes": 4805200
+      },
+      {
+        "year": 2024,
+        "month": 11,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=11/btcusdt_5m_features_v2.0.0_202411.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=11/btcusdt_5m_features_v2.0.0_202411.parquet",
+        "row_count": 8640,
+        "sha256": "6b14b43dd16561573c7d8dc55eb7fc4a4b4578a6191e3cc765428512f7b269fb",
+        "first_timestamp_utc": "2024-11-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-11-30T23:55:00+00:00",
+        "size_bytes": 4668073
+      },
+      {
+        "year": 2024,
+        "month": 12,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=12/btcusdt_5m_features_v2.0.0_202412.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2024/month=12/btcusdt_5m_features_v2.0.0_202412.parquet",
+        "row_count": 8928,
+        "sha256": "d82dc5051873ddc457d6aaf2588983ee13e5776ba037cea65f5ed62e1a228aaa",
+        "first_timestamp_utc": "2024-12-01T00:00:00+00:00",
+        "last_timestamp_utc": "2024-12-31T23:55:00+00:00",
+        "size_bytes": 4821427
+      },
+      {
+        "year": 2025,
+        "month": 1,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=01/btcusdt_5m_features_v2.0.0_202501.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=01/btcusdt_5m_features_v2.0.0_202501.parquet",
+        "row_count": 8928,
+        "sha256": "409d74b27bce96b250cb12f7caa6e0d3185106bc16d123848bcfe61cc81ad283",
+        "first_timestamp_utc": "2025-01-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-01-31T23:55:00+00:00",
+        "size_bytes": 4821234
+      },
+      {
+        "year": 2025,
+        "month": 2,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=02/btcusdt_5m_features_v2.0.0_202502.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=02/btcusdt_5m_features_v2.0.0_202502.parquet",
+        "row_count": 8064,
+        "sha256": "78dd46f3aa670a1f3a999873b8ecc5ac3cf0e9f69b4d98e2e21c64ba34c0f308",
+        "first_timestamp_utc": "2025-02-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-02-28T23:55:00+00:00",
+        "size_bytes": 4360438
+      },
+      {
+        "year": 2025,
+        "month": 3,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=03/btcusdt_5m_features_v2.0.0_202503.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=03/btcusdt_5m_features_v2.0.0_202503.parquet",
+        "row_count": 8928,
+        "sha256": "3a4a6fffb7196cd20d67bb3445f97eb0ef76f0fac9f52f75b58eb6795e306bbb",
+        "first_timestamp_utc": "2025-03-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-03-31T23:55:00+00:00",
+        "size_bytes": 4825310
+      },
+      {
+        "year": 2025,
+        "month": 4,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=04/btcusdt_5m_features_v2.0.0_202504.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=04/btcusdt_5m_features_v2.0.0_202504.parquet",
+        "row_count": 8640,
+        "sha256": "70b1f09bdfb2c1040e7e91dcd9c678c66970a63c435d265ebe07ed2a1250c56c",
+        "first_timestamp_utc": "2025-04-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-04-30T23:55:00+00:00",
+        "size_bytes": 4666458
+      },
+      {
+        "year": 2025,
+        "month": 5,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=05/btcusdt_5m_features_v2.0.0_202505.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=05/btcusdt_5m_features_v2.0.0_202505.parquet",
+        "row_count": 8928,
+        "sha256": "18d2b7bdf017a9de31a71dcec809bdbc55336cbd02b854f630ff6712d3b176d5",
+        "first_timestamp_utc": "2025-05-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-05-31T23:55:00+00:00",
+        "size_bytes": 4810737
+      },
+      {
+        "year": 2025,
+        "month": 6,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=06/btcusdt_5m_features_v2.0.0_202506.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=06/btcusdt_5m_features_v2.0.0_202506.parquet",
+        "row_count": 8640,
+        "sha256": "46c1b89af36a730aa2c714894bcaf0fc8b49f09706a65c45a7492418e8294372",
+        "first_timestamp_utc": "2025-06-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-06-30T23:55:00+00:00",
+        "size_bytes": 4652385
+      },
+      {
+        "year": 2025,
+        "month": 7,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=07/btcusdt_5m_features_v2.0.0_202507.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=07/btcusdt_5m_features_v2.0.0_202507.parquet",
+        "row_count": 8928,
+        "sha256": "af9b6d076e017746a32c0587d7703f0fc4d8ac30be5ea433cd09ef3712002e50",
+        "first_timestamp_utc": "2025-07-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-07-31T23:55:00+00:00",
+        "size_bytes": 4798966
+      },
+      {
+        "year": 2025,
+        "month": 8,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=08/btcusdt_5m_features_v2.0.0_202508.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=08/btcusdt_5m_features_v2.0.0_202508.parquet",
+        "row_count": 8928,
+        "sha256": "3c8e47674032ae18db0e795b018a3dc8c80e709756a72b4db2b5075efa32d64c",
+        "first_timestamp_utc": "2025-08-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-08-31T23:55:00+00:00",
+        "size_bytes": 4804017
+      },
+      {
+        "year": 2025,
+        "month": 9,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=09/btcusdt_5m_features_v2.0.0_202509.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=09/btcusdt_5m_features_v2.0.0_202509.parquet",
+        "row_count": 8640,
+        "sha256": "6acb76cd7154a0ec82637caeb0e5fe673169e1ad1ec6fb5579833871cd981800",
+        "first_timestamp_utc": "2025-09-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-09-30T23:55:00+00:00",
+        "size_bytes": 4638032
+      },
+      {
+        "year": 2025,
+        "month": 10,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=10/btcusdt_5m_features_v2.0.0_202510.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=10/btcusdt_5m_features_v2.0.0_202510.parquet",
+        "row_count": 8928,
+        "sha256": "f04349a757e6b3f4b6d8519a2d8d789705a019bdc96fa0c03f2722a15e0287f8",
+        "first_timestamp_utc": "2025-10-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-10-31T23:55:00+00:00",
+        "size_bytes": 4819182
+      },
+      {
+        "year": 2025,
+        "month": 11,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=11/btcusdt_5m_features_v2.0.0_202511.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=11/btcusdt_5m_features_v2.0.0_202511.parquet",
+        "row_count": 8640,
+        "sha256": "f77e7674ff3c2296a4839ece3920c8a6178914e40b178aed7e475a4ee441da3f",
+        "first_timestamp_utc": "2025-11-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-11-30T23:55:00+00:00",
+        "size_bytes": 4669356
+      },
+      {
+        "year": 2025,
+        "month": 12,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=12/btcusdt_5m_features_v2.0.0_202512.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2025/month=12/btcusdt_5m_features_v2.0.0_202512.parquet",
+        "row_count": 8928,
+        "sha256": "8b0e21372d354f6c0b6daec359aed1459e42ea0086480551d5faf923a36e5682",
+        "first_timestamp_utc": "2025-12-01T00:00:00+00:00",
+        "last_timestamp_utc": "2025-12-31T23:55:00+00:00",
+        "size_bytes": 4810524
+      },
+      {
+        "year": 2026,
+        "month": 1,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=01/btcusdt_5m_features_v2.0.0_202601.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=01/btcusdt_5m_features_v2.0.0_202601.parquet",
+        "row_count": 8928,
+        "sha256": "aade8ad7c5135bd2cb49975d40ee9ca9e1d317b68c023f6c8b126447b006ad28",
+        "first_timestamp_utc": "2026-01-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-01-31T23:55:00+00:00",
+        "size_bytes": 4800384
+      },
+      {
+        "year": 2026,
+        "month": 2,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=02/btcusdt_5m_features_v2.0.0_202602.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=02/btcusdt_5m_features_v2.0.0_202602.parquet",
+        "row_count": 8064,
+        "sha256": "6f3c9271f4be5f5c98f4f1d11b3e9706aece8cf0d8b21d69b64f24e9a8624206",
+        "first_timestamp_utc": "2026-02-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-02-28T23:55:00+00:00",
+        "size_bytes": 4362951
+      },
+      {
+        "year": 2026,
+        "month": 3,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=03/btcusdt_5m_features_v2.0.0_202603.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=03/btcusdt_5m_features_v2.0.0_202603.parquet",
+        "row_count": 8928,
+        "sha256": "2a05fdd66905f4d0b0be75184d251246017cc9ab9d3fcd25110e22956d53c338",
+        "first_timestamp_utc": "2026-03-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-03-31T23:55:00+00:00",
+        "size_bytes": 4820241
+      },
+      {
+        "year": 2026,
+        "month": 4,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=04/btcusdt_5m_features_v2.0.0_202604.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=04/btcusdt_5m_features_v2.0.0_202604.parquet",
+        "row_count": 8640,
+        "sha256": "407581f1a02bfed969b7611e31340d81c69c42d19fb900027466d9b935df2cc4",
+        "first_timestamp_utc": "2026-04-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-04-30T23:55:00+00:00",
+        "size_bytes": 4657824
+      },
+      {
+        "year": 2026,
+        "month": 5,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=05/btcusdt_5m_features_v2.0.0_202605.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=05/btcusdt_5m_features_v2.0.0_202605.parquet",
+        "row_count": 8928,
+        "sha256": "08db9840566824ce82a60f4442a1a09a4779328741852de868db5b502be19e0d",
+        "first_timestamp_utc": "2026-05-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-05-31T23:55:00+00:00",
+        "size_bytes": 4803466
+      },
+      {
+        "year": 2026,
+        "month": 6,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=06/btcusdt_5m_features_v2.0.0_202606.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=06/btcusdt_5m_features_v2.0.0_202606.parquet",
+        "row_count": 8640,
+        "sha256": "b4e6347bbca3c9adeb410e269e59571305f33f0a4db7c8ff3fd8764551e355a0",
+        "first_timestamp_utc": "2026-06-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-06-30T23:55:00+00:00",
+        "size_bytes": 4664667
+      },
+      {
+        "year": 2026,
+        "month": 7,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=07/btcusdt_5m_features_v2.0.0_202607.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=07/btcusdt_5m_features_v2.0.0_202607.parquet",
+        "row_count": 8928,
+        "sha256": "74e83a2ff8c57fcac61a02c1347504cecb6e675a2f59cc62f5243d850056caaa",
+        "first_timestamp_utc": "2026-07-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-07-31T23:55:00+00:00",
+        "size_bytes": 4810188
+      },
+      {
+        "year": 2026,
+        "month": 8,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=08/btcusdt_5m_features_v2.0.0_202608.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=08/btcusdt_5m_features_v2.0.0_202608.parquet",
+        "row_count": 8928,
+        "sha256": "71de6691c1ea972edb42c790eb655c604a753aec59c4addd3e092470511bbac3",
+        "first_timestamp_utc": "2026-08-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-08-31T23:55:00+00:00",
+        "size_bytes": 4782943
+      },
+      {
+        "year": 2026,
+        "month": 9,
+        "path": "D:/Nishant/Nishant Projects/XAU/data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=09/btcusdt_5m_features_v2.0.0_202609.parquet",
+        "relative_path": "data/features/binance/spot/BTCUSDT/5m/feature_set=v2.0.0/year=2026/month=09/btcusdt_5m_features_v2.0.0_202609.parquet",
+        "row_count": 4896,
+        "sha256": "07e8aedc194d7c60b482878d82493ee37fee265d195c710b1a1148bbb5049248",
+        "first_timestamp_utc": "2026-09-01T00:00:00+00:00",
+        "last_timestamp_utc": "2026-09-17T23:55:00+00:00",
+        "size_bytes": 2646623
+      }
+    ]
+  }
+}
